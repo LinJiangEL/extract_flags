@@ -2,17 +2,11 @@ import re
 from fuzzywuzzy import process
 
 
-def gettext(file, mode='normal') -> list:
+def gettext(file) -> list:
     templines = []
-    if mode == 'normal':
-        with open(file, 'r') as f:
-            for line in f.readlines():
-                # templines.append(line.strip().split(']')[1])
-                templines.append(line.strip())
-    elif mode == 'debug':
-        with open(file, 'r') as f:
-            for line in f.readlines():
-                templines.append(line.strip())
+    with open(file, 'r') as f:
+        for line in f.readlines():
+            templines.append(line.strip())
 
     return templines
 
